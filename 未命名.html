@@ -3,100 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPI 恋爱测试 - 测测你的恋爱隐藏属性</title>
+    <title>恋爱体质测试 - 探索你的恋爱人格</title>
     <link rel="stylesheet" href="style.css">
-    <!-- 引入字体图标（用于表情和按钮图标） -->
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 引入Chart.js用于数据可视化 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-    <!-- 首页区域 -->
-    <section id="home-page" class="page active">
-        <div class="home-container">
-            <div class="home-header">
-                <h1 class="title"><i class="fa-solid fa-heart-pulse"></i> RPI 恋爱灵魂测试</h1>
-                <p class="slogan">测完就知道，你为什么还单身/你的恋爱天花板有多高！</p>
-            </div>
+    <!-- 首页 -->
+    <div id="home-page" class="page active">
+        <div class="container">
             <div class="home-content">
-                <div class="funny-img">
-                    <img src="https://picsum.photos/seed/love1/400/300" alt="搞笑恋爱表情包" class="responsive-img">
+                <h1>恋爱体质测试</h1>
+                <p class="subtitle">探索你的恋爱人格，找到最契合的爱情模式</p>
+                <div class="promo-text">
+                    <p>📱 只需5分钟，揭示你的恋爱真相</p>
+                    <p>💖 超准测试，已帮助10000+人找到真爱</p>
+                    <p>😂 全程高能，笑到停不下来</p>
                 </div>
-                <p class="intro">
-                    本测试包含20道幽默灵魂考题，融入全网热门梗、神评论，
-                    不仅能测出你的恋爱特质，还能让你笑到劈叉！专业分析+搞笑吐槽，
-                    快来解锁你的专属恋爱报告～
-                </p>
-                <button id="start-test-btn" class="btn primary-btn">
-                    立即开始测试 <i class="fa-solid fa-arrow-right"></i>
-                </button>
+                <button id="start-test-btn" class="btn primary-btn">开始测试</button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- 测试页面区域 -->
-    <section id="test-page" class="page">
-        <div class="test-container">
-            <!-- 进度指示器 -->
-            <div class="progress-bar">
-                <div class="progress-inner" id="progress-inner"></div>
-                <p class="progress-text" id="progress-text">1/20 题</p>
-            </div>
-
-            <!-- 题目展示区域 -->
-            <div class="question-container" id="question-container">
-                <h3 class="question-title" id="question-title">加载中题目...</h3>
-                <div class="options-list" id="options-list"></div>
-            </div>
-
-            <!-- 题目切换按钮 -->
-            <div class="btn-group">
-                <button id="prev-question-btn" class="btn secondary-btn" disabled>
-                    <i class="fa-solid fa-arrow-left"></i> 上一题
-                </button>
-                <button id="next-question-btn" class="btn primary-btn">
-                    下一题 <i class="fa-solid fa-arrow-right"></i>
-                </button>
+    <!-- 测试页面 -->
+    <div id="test-page" class="page">
+        <div class="container">
+            <div class="test-content">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress" class="progress-fill"></div>
+                    </div>
+                    <div id="progress-text" class="progress-text">1/20</div>
+                </div>
+                
+                <div id="question-container" class="question-container">
+                    <h2 id="question-text" class="question-text">问题加载中...</h2>
+                    <div id="options-container" class="options-container">
+                        <!-- 选项将通过JavaScript动态添加 -->
+                    </div>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <button id="prev-btn" class="btn secondary-btn" disabled>上一题</button>
+                    <button id="next-btn" class="btn primary-btn">下一题</button>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- 结果页面区域 -->
-    <section id="result-page" class="page">
-        <div class="result-container">
-            <div class="result-header">
-                <h2 class="result-title" id="result-title"><i class="fa-solid fa-award"></i> 你的恋爱属性已解锁！</h2>
-                <div class="result-icon" id="result-icon"></div>
-            </div>
-
-            <!-- 结果内容区域 -->
+    <!-- 结果页面 -->
+    <div id="result-page" class="page">
+        <div class="container">
             <div class="result-content">
-                <div class="funny-evaluation" id="funny-evaluation">
-                    <!-- 搞笑评价 -->
+                <h2>测试结果</h2>
+                <div id="result-container" class="result-container">
+                    <div id="result-image-container" class="result-image-container">
+                        <!-- 结果图片将通过JavaScript动态添加 -->
+                    </div>
+                    <h3 id="result-title" class="result-title">结果加载中...</h3>
+                    <div id="result-description" class="result-description">
+                        <!-- 结果描述将通过JavaScript动态添加 -->
+                    </div>
+                    <div id="result-details" class="result-details">
+                        <!-- 结果详情将通过JavaScript动态添加 -->
+                    </div>
                 </div>
-                <div class="professional-analysis" id="professional-analysis">
-                    <!-- 专业解读 -->
+                
+                <div class="result-buttons">
+                    <button id="share-btn" class="btn secondary-btn">分享结果</button>
+                    <button id="retake-btn" class="btn primary-btn">重新测试</button>
                 </div>
-            </div>
-
-            <!-- 功能按钮组 -->
-            <div class="result-btn-group">
-                <button id="copy-link-btn" class="btn secondary-btn">
-                    <i class="fa-solid fa-copy"></i> 复制结果链接
-                </button>
-                <button id="share-wechat-btn" class="btn secondary-btn">
-                    <i class="fa-brands fa-weixin"></i> 分享到微信
-                </button>
-                <button id="restart-test-btn" class="btn primary-btn">
-                    <i class="fa-solid fa-rotate-right"></i> 重新测试
-                </button>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- 页脚区域 -->
-    <footer class="footer">
-        <div class="footer-container">
-            <p class="footer-text"><i class="fa-solid fa-face-grin-squint"></i> 免责声明：本测试仅供娱乐，不构成恋爱指导，如有雷同，纯属缘分！</p>
-            <p class="footer-desc">RPI 恋爱测试 © 2025 全网最搞笑的恋爱测试平台</p>
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>本测试仅供娱乐，如有雷同，纯属巧合 💕</p>
+            <p>© 2025 恋爱体质测试 - 让爱情更有趣</p>
         </div>
     </footer>
 
