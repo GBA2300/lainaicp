@@ -1,0 +1,330 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
+}
+
+/* 全局变量（方便统一修改风格） */
+:root {
+    --primary-color: #ff6b8b; /* 主色调：活泼粉 */
+    --secondary-color: #4ecdc4; /* 辅助色：清新蓝绿 */
+    --light-color: #f8f9fa; /* 浅色背景 */
+    --dark-color: #2c3e50; /* 深色文字 */
+    --gray-color: #95a5a6; /* 灰色文字 */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    --radius: 12px; /* 圆角大小 */
+    --transition: all 0.3s ease; /* 过渡动画 */
+}
+
+body {
+    background-color: var(--light-color);
+    background-image: url("https://picsum.photos/seed/lovebg/1920/1080");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    padding: 20px 0;
+}
+
+/* 页面通用样式（首页/测试页/结果页） */
+.page {
+    display: none; /* 默认隐藏 */
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.page.active {
+    display: block; /* 激活的页面显示 */
+}
+
+/* 按钮通用样式 */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.btn:disabled {
+    background-color: var(--gray-color);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* 首页样式 */
+.home-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.home-header .title {
+    color: var(--primary-color);
+    font-size: 28px;
+    margin-bottom: 16px;
+}
+
+.home-header .slogan {
+    color: var(--dark-color);
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 30px;
+}
+
+.funny-img {
+    margin-bottom: 24px;
+}
+
+.home-content .intro {
+    color: var(--dark-color);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+#start-test-btn {
+    font-size: 18px;
+    padding: 14px 32px;
+}
+
+/* 测试页面样式 */
+.test-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-inner {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 5%; /* 初始进度：1/20 */
+    transition: var(--transition);
+}
+
+.progress-text {
+    position: absolute;
+    right: 0;
+    top: -25px;
+    color: var(--dark-color);
+    font-weight: 600;
+}
+
+.question-title {
+    color: var(--dark-color);
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.options-list {
+    display: grid;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.option-item {
+    padding: 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--radius);
+    color: var(--dark-color);
+    font-size: 16px;
+    cursor: pointer;
+    transition: var(--transition);
+    text-align: left;
+}
+
+.option-item:hover {
+    border-color: var(--secondary-color);
+    background-color: rgba(78, 205, 196, 0.1);
+}
+
+.option-item.selected {
+    border-color: var(--primary-color);
+    background-color: rgba(255, 107, 139, 0.1);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 结果页面样式 */
+.result-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.result-title {
+    color: var(--primary-color);
+    font-size: 26px;
+    margin-bottom: 20px;
+}
+
+.result-icon {
+    font-size: 80px;
+    margin-bottom: 24px;
+    color: var(--primary-color);
+}
+
+.result-content {
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.funny-evaluation {
+    color: var(--primary-color);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    padding: 16px;
+    background-color: rgba(255, 107, 139, 0.05);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--primary-color);
+}
+
+.professional-analysis {
+    color: var(--dark-color);
+    font-size: 16px;
+    line-height: 1.7;
+    padding: 16px;
+    background-color: rgba(78, 205, 196, 0.05);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.result-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+/* 页脚样式 */
+.footer {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.footer-text {
+    color: var(--dark-color);
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.footer-desc {
+    color: var(--gray-color);
+    font-size: 12px;
+}
+
+/* 响应式适配（手机/平板/电脑） */
+@media (max-width: 768px) {
+    .page {
+        width: 95%;
+    }
+
+    .home-header .title {
+        font-size: 24px;
+    }
+
+    .result-icon {
+        font-size: 60px;
+    }
+
+    .btn-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .result-btn-group {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-container, .test-container, .result-container {
+        padding: 20px 15px;
+    }
+
+    .home-header .title {
+        font-size: 22px;
+    }
+
+    .question-title {
+        font-size: 18px;
+    }
+
+    .option-item {
+        padding: 12px;
+        font-size: 14px;
+    }
+}
